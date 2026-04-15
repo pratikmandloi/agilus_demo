@@ -25,7 +25,7 @@ export function HealthConcerns() {
   return (
     <section className="relative overflow-hidden bg-[#F3F7FB] py-10 md:bg-white md:py-24">
       {/* Desktop gradient only */}
-      <div className="pointer-events-none absolute left-0 top-0 z-0 hidden h-[110%] w-full bg-[linear-gradient(to_bottom,rgba(207,233,249,0)_0%,rgba(207,233,249,0.6)_20%,rgba(207,233,249,0.8)_50%,rgba(207,233,249,0.6)_80%,rgba(207,233,249,0)_100%)] md:block" />
+      <div className="pointer-events-none absolute left-0 top-0 z-0  h-[110%] w-full bg-[linear-gradient(to_bottom,rgba(207,233,249,0)_0%,rgba(207,233,249,0.6)_20%,rgba(207,233,249,0.8)_50%,rgba(207,233,249,0.6)_80%,rgba(207,233,249,0)_100%)]  " />
 
       <div className="relative z-10 mx-auto max-w-[1240px] px-5 md:px-6">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-16 lg:items-center">
@@ -62,11 +62,11 @@ export function HealthConcerns() {
                   aria-label={concern.label}
                   className="group flex touch-manipulation flex-col items-center justify-start bg-transparent p-0 text-center transition-all duration-300 hover:scale-[1.04] active:scale-[0.96] focus-visible:scale-[1.04] focus-visible:outline-none"
                 >
-                  <div className="flex h-[74px] w-[74px] items-center justify-center rounded-[18px] bg-white shadow-[0_8px_24px_rgba(15,55,95,0.08)] transition-all duration-300 group-hover:-translate-y-1.5 group-active:-translate-y-0.5 md:h-24 md:w-24 md:rounded-none md:bg-transparent md:shadow-none md:group-hover:-translate-y-2">
+                  <div className="flex h-[74px] w-[74px] items-center justify-center rounded-[18px]  transition-all duration-300 group-hover:-translate-y-1.5 group-active:-translate-y-0.5 md:h-24 md:w-24 md:rounded-none md:bg-transparent shadow-none md:group-hover:-translate-y-2">
                     <img
                       src={concern.icon}
                       alt={concern.label}
-                      className="h-8 w-8 object-contain drop-shadow-sm transition-transform duration-300 group-hover:scale-105 md:h-full md:w-full"
+                      className="h-[80%] w-[80%] object-contain drop-shadow-sm transition-transform duration-300 group-hover:scale-105 md:h-full md:w-full"
                     />
                   </div>
 
@@ -79,7 +79,7 @@ export function HealthConcerns() {
 
             {/* Mobile button */}
             <div className="mt-8 flex justify-center md:hidden">
-            <button className="inline-flex min-w-[120px] touch-manipulation items-center justify-center rounded-md bg-gradient-to-b from-[#0B0909] via-[#091120] to-[#1055A8] px-7 py-3 text-[12px] font-semibold text-white shadow-[0_8px_20px_rgba(10,95,150,0.25)] transition-all duration-300 active:scale-[0.96]">
+              <button className="inline-flex min-w-[120px] touch-manipulation items-center justify-center rounded-md bg-gradient-to-b from-[#0B0909] via-[#091120] to-[#1055A8] px-7 py-3 text-[12px] font-semibold text-white shadow-[0_8px_20px_rgba(10,95,150,0.25)] transition-all duration-300 active:scale-[0.96]">
                 View All
               </button>
             </div>

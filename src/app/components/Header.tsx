@@ -494,28 +494,57 @@ export function Header({ onNavigate }: HeaderProps) {
             <h3 className="text-center font-bold text-gray-900 mb-6 text-lg">
               Popular Cities
             </h3>
-            <div className="flex justify-center gap-6 mb-10 overflow-x-auto pb-4 px-2">
+
+            <div
+              className="flex flex-nowrap overflow-x-auto justify-start sm:justify-center gap-4 sm:gap-6 mb-10 pb-3 px-2 select-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+              style={{
+                WebkitOverflowScrolling: "touch",
+                overscrollBehaviorX: "contain",
+                touchAction: "pan-x",
+              }}
+            >
               {popularCities.map((city) => (
-                <button
+                <div
                   key={city.name}
-                  onClick={() => handleCitySelect(city.name)}
-                  className={`flex flex-col items-center gap-3 w-[72px] group transition-all`}
+                  className="flex flex-col items-center gap-3 w-[72px] flex-shrink-0 group"
+                  style={{ touchAction: "pan-x" }}
                 >
-                  <div
-                    className={`w-[72px] h-[72px] rounded-2xl bg-white flex items-center justify-center transition-all duration-300 ${savedAddress === city.name ? "border border-[#1055A8] shadow-[0_4px_12px_rgba(16,85,168,0.2)]" : "border border-gray-100 group-hover:border-[#1055A8] shadow-sm group-hover:shadow-[0_4px_12px_rgba(16,85,168,0.1)]"}`}
+                  <button
+                    type="button"
+                    onClick={() => handleCitySelect(city.name)}
+                    className="flex flex-col items-center gap-3 w-full transition-all active:scale-95"
+                    style={{ touchAction: "pan-x" }}
                   >
-                    <img
-                      src={city.img}
-                      alt={city.name}
-                      className={`w-10 h-10 object-contain transition-all duration-300 ${savedAddress === city.name ? "" : "filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100"}`}
-                    />
-                  </div>
-                  <span
-                    className={`text-[13px] text-center whitespace-nowrap transition-colors ${savedAddress === city.name ? "text-[#1055A8] font-bold" : "text-gray-500 group-hover:text-gray-900"}`}
-                  >
-                    {city.name}
-                  </span>
-                </button>
+                    <div
+                      className={`w-[72px] h-[72px] rounded-2xl bg-white flex items-center justify-center transition-all duration-300 ${
+                        savedAddress === city.name
+                          ? "border border-[#1055A8] shadow-[0_4px_12px_rgba(16,85,168,0.2)]"
+                          : "border border-gray-100 group-hover:border-[#1055A8] shadow-sm group-hover:shadow-[0_4px_12px_rgba(16,85,168,0.1)]"
+                      }`}
+                    >
+                      <img
+                        src={city.img}
+                        alt={city.name}
+                        draggable={false}
+                        className={`w-10 h-10 object-contain transition-all duration-300 pointer-events-none select-none ${
+                          savedAddress === city.name
+                            ? ""
+                            : "filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100"
+                        }`}
+                      />
+                    </div>
+
+                    <span
+                      className={`text-[13px] text-center whitespace-nowrap transition-colors pointer-events-none select-none ${
+                        savedAddress === city.name
+                          ? "text-[#1055A8] font-bold"
+                          : "text-gray-500 group-hover:text-gray-900"
+                      }`}
+                    >
+                      {city.name}
+                    </span>
+                  </button>
+                </div>
               ))}
             </div>
 
@@ -525,7 +554,7 @@ export function Header({ onNavigate }: HeaderProps) {
             </h3>
             <div
               data-lenis-prevent
-              className="grid grid-cols-4 gap-y-4 gap-x-6 max-h-[200px] overflow-y-auto overscroll-contain px-4 pb-4"
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-3 gap-x-4 max-h-[220px] overflow-y-auto overscroll-contain px-4 pb-4 justify-center"
             >
               {otherCities
                 .filter((city) =>
@@ -535,7 +564,7 @@ export function Header({ onNavigate }: HeaderProps) {
                   <button
                     key={city}
                     onClick={() => handleCitySelect(city)}
-                    className="text-left text-sm text-gray-600 hover:text-[#1055A8] hover:font-medium transition-colors py-1 truncate"
+                    className="text-left text-[13px] sm:text-sm text-gray-600 hover:text-[#1055A8] hover:font-medium transition-colors py-1 break-words"
                   >
                     {city}
                   </button>
